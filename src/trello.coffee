@@ -109,16 +109,3 @@ module.exports = (robot) ->
     msg.send " *  shows * [<card.shortLink>] <card.name> - <card.shortUrl>"
     msg.send " *  trello move <card.shortlink> \"<ListName>\""
     msg.send " *  trello list lists"
-
-  # robot.respond /ready ["'](.+)["']/i, (msg) ->
-  #   ensureConfig msg.send
-  #   card_name = msg.match[1]
-  #   list_name = "A/C Testing"
-  #
-  #   if card_name.length == 0
-  #     msg.reply "You must pass in a URL for A/C testing"
-  #     return
-  #
-  #   return unless ensureConfig()
-  #
-  #   createCard msg, list_name, card_name
