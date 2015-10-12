@@ -113,5 +113,12 @@ module.exports = (robot) ->
   robot.respond /ready ["'](.+)["']/i, (msg) ->
     ensureConfig msg.send
     card_name = msg.match[1]
+    list_name = "A/C Testing"
 
-    createCard msg, "A/C Testing", card_name
+    if card_name.length == 0
+      msg.reply "You must pass in a URL for A/C testing"
+      return
+
+    return unless ensureConfig()
+
+    createCard msg, list_name, card_name
