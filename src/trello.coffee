@@ -110,5 +110,8 @@ module.exports = (robot) ->
     msg.send " *  trello move <card.shortlink> \"<ListName>\""
     msg.send " *  trello list lists"
 
-  robot.respond /ready/i, (msg) ->
-    createCard msg, "A/C Testing", msg
+  robot.respond /ready ["'](.+)["']/i, (msg) ->
+    ensureConfig msg.send
+    card_name = msg.match[1]
+
+    createCard msg, "A/C Testing", card_name
